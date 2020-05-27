@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
-  // DART 2.0
-  final player = AudioCache();
+  void PlaySound(int note) {
+    // DART 2.0
+    final player = AudioCache();
+    player.play('note$note.wav');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,44 +20,44 @@ class XylophoneApp extends StatelessWidget {
               FlatButton(
                 color: Colors.red,
                 onPressed: () {
-                  player.play('note1.wav');
+                  PlaySound(1);
                 },
                 child: null,
               ),
               FlatButton(
                   color: Colors.orange,
                   onPressed: () {
-                    player.play('note2.wav');
+                    PlaySound(2);
                   },
                   child: null),
               FlatButton(
                   color: Colors.yellow,
                   onPressed: () {
-                    player.play('note3.wav');
+                    PlaySound(3);
                   },
                   child: null),
               FlatButton(
                   color: Colors.green,
                   onPressed: () {
-                    player.play('note4.wav');
+                    PlaySound(4);
                   },
                   child: null),
               FlatButton(
                   color: Colors.teal,
                   onPressed: () {
-                    player.play('note5.wav');
+                    PlaySound(5);
                   },
                   child: null),
               FlatButton(
                   color: Colors.blue,
                   onPressed: () {
-                    player.play('note6.wav');
+                    PlaySound(6);
                   },
                   child: null),
               FlatButton(
                   color: Colors.purple,
                   onPressed: () {
-                    player.play('note7.wav');
+                    PlaySound(7);
                   },
                   child: null),
             ],
