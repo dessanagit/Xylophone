@@ -4,62 +4,40 @@ import 'package:flutter/material.dart';
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
+  // Second type of function -> void name(input){~}
   void PlaySound(int note) {
     // DART 2.0
     final player = AudioCache();
     player.play('note$note.wav');
   }
 
+  Expanded buildKey({Color color, int soundNumber}) {
+    return Expanded(
+      child: FlatButton(
+          color: color,
+          onPressed: () {
+            PlaySound(soundNumber);
+          },
+          child: null),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              FlatButton(
-                color: Colors.red,
-                onPressed: () {
-                  PlaySound(1);
-                },
-                child: null,
-              ),
-              FlatButton(
-                  color: Colors.orange,
-                  onPressed: () {
-                    PlaySound(2);
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.yellow,
-                  onPressed: () {
-                    PlaySound(3);
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.green,
-                  onPressed: () {
-                    PlaySound(4);
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.teal,
-                  onPressed: () {
-                    PlaySound(5);
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.blue,
-                  onPressed: () {
-                    PlaySound(6);
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.purple,
-                  onPressed: () {
-                    PlaySound(7);
-                  },
-                  child: null),
+              buildKey(color: Colors.red, soundNumber: 1),
+              buildKey(color: Colors.orange, soundNumber: 2),
+              buildKey(color: Colors.yellow, soundNumber: 3),
+              buildKey(color: Colors.green, soundNumber: 4),
+              buildKey(color: Colors.teal, soundNumber: 5),
+              buildKey(color: Colors.blue, soundNumber: 6),
+              buildKey(color: Colors.purple, soundNumber: 7),
             ],
           ),
         ),
